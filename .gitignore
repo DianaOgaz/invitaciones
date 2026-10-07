@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Variables de entorno y secretos locales
+.env
+.env.*
+!.env.example
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos temporales y copias locales
+*.tmp
+*.bak
+*~
+
+LEEME*

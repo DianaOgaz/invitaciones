@@ -2,13 +2,6 @@
 
 Sitio estático (HTML, CSS y JS, sin dependencias ni compilación) para crear invitaciones de bodas, XV años, cumpleaños, graduaciones, bautizos y más.
 
-## Si ves un error al abrir (por ejemplo "file not found")
-
-Eso pasa cuando `invitacion.html` se abre sin sus carpetas `js/`, `css/`, `eventos/` e `img/` al lado. Suele ocurrir al abrir el archivo directo desde el .zip o desde una vista previa.
-
-- **Opción 1:** descomprime el .zip completo (clic derecho → *Extraer todo*) y abre `index.html` desde la carpeta descomprimida.
-- **Opción 2:** usa la carpeta **`listas/`**. Cada invitación ahí es **un solo archivo .html** con todo incluido (estilos, código, datos y fotos). Funciona aunque lo abras solo, lo mandes por WhatsApp o correo, o lo subas a cualquier hosting.
-
 ## Estructura
 
 ```
