@@ -1,0 +1,66 @@
+/* =====================================================================
+   TEMA: XV AÑOS / PRINCESA — lila, rosa y dorado con destellos.
+   Ideal para: XV años, Sweet 16, primera comunión, baby shower de niña.
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Quicksand:wght@400;500;600&family=Parisienne&display=swap');
+
+:root {
+  --bg: #fcf8ff;
+  --bg-alt: #f6edfb;
+  --surface: #ffffff;
+  --text: #3e2a52;
+  --muted: #7d6a8f;
+  --accent: #a46bc8;
+  --accent-2: #3e2252;
+  --on-accent: #ffffff;
+  --gold: #c9a23c;
+  --border: rgba(164, 107, 200, .22);
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-body: 'Quicksand', system-ui, sans-serif;
+  --font-script: 'Parisienne', cursive;
+  --radius: 26px;
+  --shadow: 0 18px 44px rgba(124, 70, 170, .14);
+  --hero-text: #3e2a52;
+  --orn-glyph: "♛";
+  --fx-colors: #d4af37, #f6e27a, #ffffff, #e9c8ff, #f4a6c6;
+  --intro-bg: linear-gradient(160deg, #f3e3ff, #ffe1ee);
+}
+
+/* Portada: retrato circular con aro dorado, corona y destellos */
+.hero { background: radial-gradient(ellipse at top, #ffffff 0%, #f3e3ff 45%, #ffd9ea 100%); }
+.hero-inner { display: flex; flex-direction: column; align-items: center; gap: 10px; position: relative; z-index: 2; }
+.hero-photo { position: relative; inset: auto; width: clamp(190px, 30vw, 270px); aspect-ratio: 1; border-radius: 50%; padding: 7px; background: conic-gradient(from 0deg, #f6e27a, #c9a23c, #fff3c4, #c9a23c, #f6e27a); box-shadow: 0 0 0 8px rgba(255,255,255,.7), 0 20px 50px rgba(124,70,170,.3); animation: subir 1.2s both; overflow: visible; }
+.hero-photo img { border-radius: 50%; width: 100%; height: 100%; animation: none; border: 4px solid #fff; }
+.hero-photo::after { content: ""; position: absolute; inset: auto; top: -46px; left: 50%; translate: -50% 0; width: 96px; height: 56px; background: url('../../img/corona.svg') center / contain no-repeat; filter: drop-shadow(0 4px 6px rgba(150,110,20,.35)); }
+.eyebrow { color: var(--gold); font-family: var(--font-display); font-weight: 600; letter-spacing: .45em; margin-top: 14px; }
+.hero-sub { color: var(--muted); }
+.hero-names { color: var(--accent); font-size: clamp(4rem, 13vw, 8rem); text-shadow: 0 2px 0 #fff, 0 10px 30px rgba(164,107,200,.35); }
+.hero-deco { display: none; }
+.hd-side { border-color: var(--gold); color: var(--muted); }
+.hd-day { color: var(--gold); font-weight: 600; }
+.btn-hero { background: linear-gradient(135deg, #b47cd6, #e889b5); border: none; }
+.scroll-hint { color: var(--accent); }
+
+/* Detalles brillantes */
+.section-title { font-weight: 600; letter-spacing: .06em; font-size: clamp(1.7rem, 4.4vw, 2.7rem); }
+.section-kicker { color: #d76fa4; }
+.section-orn { color: var(--gold); font-size: 18px; }
+.btn { background: linear-gradient(135deg, #a46bc8, #d77fb0); border: none; letter-spacing: .12em; }
+.btn-ghost { background: #fff; color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.btn-ghost:hover { background: linear-gradient(135deg, #a46bc8, #d77fb0); color: #fff; box-shadow: none; }
+.card, .cd-item, .padrino { border: 1px solid transparent; background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #f6e27a, #e9c8ff, #f4a6c6) border-box; }
+.card-icon { background: linear-gradient(135deg, #f3e3ff, #ffe1ee); }
+.cd-num { background: linear-gradient(135deg, #a46bc8, #e07bb0); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600; }
+.tl-photo img { border-radius: 26px; border: 5px solid #fff; }
+.tl-dot { background: var(--gold); border-color: #fff; }
+.tab.active { background: linear-gradient(135deg, #a46bc8, #d77fb0); border-color: transparent; }
+main > section.alt { background: linear-gradient(180deg, #f6edfb, #fdf0f7); }
+.choice input:checked + span { background: #f6edfb; }
+
+.intro { background: var(--intro-bg); }
+.intro-card { border: 1px solid transparent; background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #f6e27a, #e9c8ff, #f4a6c6) border-box; }
+.seal { background: radial-gradient(circle at 35% 30%, #fff3c4, #c9a23c 65%, #9c7a1c); box-shadow: 0 6px 16px rgba(0,0,0,.2), inset 0 0 0 5px #b38f2a; }
+.intro-names { color: var(--accent); }
+
+.footer { background: linear-gradient(160deg, #3e2252, #6b3a7c); color: #fff; }
+.hashtag { color: #f6e27a; }

@@ -1,0 +1,79 @@
+/* =====================================================================
+   TEMA: MEXICANO / TALAVERA — azul cobalto, papel picado y color.
+   Ideal para: bodas en Oaxaca/San Miguel, fiestas mexicanas, 15 de sept.
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Nunito:wght@400;600;700&family=Yellowtail&display=swap');
+
+:root {
+  --bg: #fbf8f1;
+  --bg-alt: #f2ece0;
+  --surface: #ffffff;
+  --text: #1c2b4a;
+  --muted: #5d6a85;
+  --accent: #1f4e9c;
+  --accent-2: #1f4e9c;
+  --on-accent: #ffffff;
+  --pink: #e5337f;
+  --yellow: #f6b81b;
+  --border: rgba(31, 78, 156, .2);
+  --font-display: 'Abril Fatface', Georgia, serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --font-script: 'Yellowtail', cursive;
+  --radius: 14px;
+  --shadow: 0 12px 30px rgba(31, 78, 156, .12);
+  --hero-text: #1c2b4a;
+  --orn-glyph: "✿";
+  --fx-colors: #e5337f, #f6b81b, #2a9d5c, #1f4e9c, #ff7a1a, #8e44ad;
+  --intro-bg: #1f4e9c;
+}
+
+/* Portada: papel picado colgando + franjas de talavera + foto con marco de azulejo */
+.hero { background: var(--bg); }
+.hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: clamp(80px, 11vw, 125px); z-index: 3; pointer-events: none;
+  background: url('../../img/deco-papel-picado.svg') repeat-x left top / auto 100%; animation: ondear 6s ease-in-out infinite alternate; transform-origin: top; }
+@keyframes ondear { from { transform: skewX(-1deg); } to { transform: skewX(1deg); } }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: url('../../img/deco-talavera.svg') repeat-y left top / 70px, url('../../img/deco-talavera.svg') repeat-y right top / 70px; }
+.hero-inner { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; padding: clamp(130px, 16vw, 170px) 90px 80px; }
+.hero-photo { position: relative; inset: auto; width: clamp(180px, 24vw, 240px); aspect-ratio: 1; border-radius: 50%; padding: 10px; overflow: visible;
+  background: repeating-conic-gradient(var(--accent) 0 10deg, #fff 10deg 20deg); box-shadow: var(--shadow); animation: subir 1.2s both; }
+.hero-photo img { border-radius: 50%; border: 6px solid #fff; animation: none; height: 100%; }
+.hero-photo::after { display: none; }
+.eyebrow { margin-top: 28px; color: var(--pink); font-weight: 700; }
+.hero-names { font-family: var(--font-display); color: var(--accent); font-size: clamp(3rem, 9vw, 6.4rem); line-height: 1; }
+.hero-names .amp { font-family: var(--font-script); color: var(--pink); }
+.hero-deco { display: none; }
+.hd-side { border-color: var(--yellow); border-width: 2px; font-weight: 700; }
+.hd-day { color: var(--pink); }
+.hero-phrase { font-family: var(--font-body); font-style: normal; }
+.btn-hero { background: var(--pink); border-color: var(--pink); }
+.scroll-hint { color: var(--accent); }
+@media (max-width: 600px) {
+  .hero::after { background-size: 34px, 34px; }
+  .hero-inner { padding-inline: 46px; }
+}
+
+.section-kicker { color: var(--pink); }
+.section-orn { color: var(--yellow); font-size: 20px; }
+main > section.alt { background: var(--bg-alt); }
+main > section.alt::before, main > section.alt::after { content: ""; position: absolute; left: 0; right: 0; height: 14px; background: url('../../img/deco-talavera.svg') repeat-x center / 14px; opacity: .9; }
+main > section.alt::before { top: 0; }
+main > section.alt::after { bottom: 0; }
+.card { border-top: 6px solid var(--accent); }
+.cards .card:nth-child(3n+2) { border-top-color: var(--pink); }
+.cards .card:nth-child(3n+3) { border-top-color: var(--yellow); }
+.card-icon { background: #e6eefb; }
+.cd-item { border: 2px solid var(--accent); }
+.cd-item:nth-child(2) { border-color: var(--pink); } .cd-item:nth-child(2) .cd-num { color: var(--pink); }
+.cd-item:nth-child(3) { border-color: var(--yellow); } .cd-item:nth-child(3) .cd-num { color: #d99a00; }
+.cd-item:nth-child(4) { border-color: #2a9d5c; } .cd-item:nth-child(4) .cd-num { color: #2a9d5c; }
+.tl-photo img { border: 8px solid #fff; outline: 2px dashed var(--accent); outline-offset: -14px; }
+.tl-dot { background: var(--yellow); border-color: var(--accent); }
+.carousel-viewport { border: 8px solid #fff; outline: 3px solid var(--accent); }
+
+.intro { background: var(--intro-bg) url('../../img/deco-talavera.svg') repeat center / 110px; }
+.intro-card { border: 4px solid var(--yellow); }
+.seal { background: var(--pink); box-shadow: 0 0 0 6px #fff, 0 0 0 9px var(--pink); font-family: var(--font-display); }
+
+.footer { background: var(--accent) url('../../img/deco-papel-picado.svg') repeat-x left top / auto 70px; padding-top: 140px; }
+.hashtag { color: var(--yellow); }

@@ -1,0 +1,83 @@
+/* =====================================================================
+   TEMA: INFANTIL — cielo, nubes, colinas y globos de colores.
+   Ideal para: cumpleaños de niños, fiestas temáticas, kermés escolares.
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&family=Chewy&display=swap');
+
+:root {
+  --bg: #fffdf5;
+  --bg-alt: #eef7ff;
+  --surface: #ffffff;
+  --text: #2d3a4a;
+  --muted: #64748b;
+  --accent: #ff595e;
+  --accent-2: #1982c4;
+  --yellow: #ffca3a;
+  --green: #8ac926;
+  --purple: #6a4c93;
+  --on-accent: #ffffff;
+  --border: #e6edf5;
+  --font-display: 'Baloo 2', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --font-script: 'Chewy', cursive;
+  --radius: 26px;
+  --btn-radius: 99px;
+  --shadow: 0 8px 0 rgba(45, 58, 74, .08), 0 18px 30px rgba(45, 58, 74, .08);
+  --hero-text: #2d3a4a;
+  --orn-glyph: "●  ●  ●";
+  --fx-colors: #ff595e, #ffca3a, #8ac926, #1982c4, #6a4c93;
+  --intro-bg: #bde3ff;
+}
+body { font-size: 18px; }
+
+/* Portada: cielo con nubes que pasan y colinas */
+.hero { background: linear-gradient(180deg, #8fd0ff 0%, #c9ebff 60%, #e8f6ff 100%); }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: url('../../img/deco-nube.svg') no-repeat 8% 14% / 180px, url('../../img/deco-nube.svg') no-repeat 88% 22% / 230px,
+              url('../../img/deco-nube.svg') no-repeat 60% 6% / 120px, url('../../img/deco-nube.svg') no-repeat 20% 58% / 140px;
+  animation: nubes 40s linear infinite alternate; }
+@keyframes nubes { to { background-position: 18% 14%, 76% 22%, 70% 6%, 30% 58%; } }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: clamp(90px, 14vw, 200px); z-index: 1; pointer-events: none;
+  background: url('../../img/deco-colinas.svg') no-repeat center bottom / 100% 100%; }
+.hero-inner { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; padding-bottom: clamp(110px, 16vw, 200px); }
+.hero-photo { position: relative; inset: auto; width: clamp(170px, 22vw, 220px); aspect-ratio: 1; border-radius: 50%; border: 8px solid #fff; box-shadow: 0 10px 0 rgba(0,0,0,.08); overflow: visible; animation: rebote 3s ease-in-out infinite; }
+@keyframes rebote { 50% { transform: translateY(-10px) rotate(-2deg); } }
+.hero-photo img { border-radius: 50%; height: 100%; animation: none; }
+.hero-photo::after { content: "¡Yay!"; inset: auto; right: -30px; top: -6px; background: var(--yellow); color: var(--text); font-family: var(--font-script); font-size: 1.3rem; padding: .2em .7em; border-radius: 99px; transform: rotate(12deg); }
+.eyebrow { margin-top: 22px; display: inline-block; background: #fff; color: var(--accent); padding: .4em 1.1em; border-radius: 99px; font-weight: 700; letter-spacing: .15em; }
+.hero-sub { font-family: var(--font-script); font-style: normal; font-size: 2rem; color: var(--accent-2); }
+.hero-names { font-family: var(--font-display); font-weight: 800; font-size: clamp(3.6rem, 12vw, 7.4rem); line-height: 1; margin: 0 0 .15em; }
+.hero-names .hn { background: linear-gradient(90deg, #ff595e, #ffca3a, #8ac926, #1982c4, #6a4c93); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-stroke: 0; filter: drop-shadow(0 4px 0 #fff); }
+.hero-deco { display: none; }
+.hero-date { font-family: var(--font-display); }
+.hd-side { border: 3px solid #fff; border-radius: 99px; background: rgba(255,255,255,.6); padding: .4em 1em; min-width: 0; font-weight: 700; }
+.hd-day { color: var(--accent); font-weight: 800; }
+.hero-phrase { font-family: var(--font-body); font-style: normal; }
+.scroll-hint { display: none; }
+
+.section-title { font-weight: 800; }
+.section-kicker { color: var(--accent-2); }
+.section-orn { width: auto; background: none; font-size: 10px; letter-spacing: 2px; }
+.section-orn::before { background: linear-gradient(90deg, #ff595e, #ffca3a, #8ac926, #1982c4, #6a4c93); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.btn { font-weight: 800; letter-spacing: .06em; box-shadow: 0 5px 0 rgba(0,0,0,.15); }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 8px 0 rgba(0,0,0,.15); }
+.card { border: 3px solid var(--border); }
+.cards .card:nth-child(4n+1) { border-color: #ffd2d3; } .cards .card:nth-child(4n+1) .card-icon { background: #ffe3e4; color: var(--accent); }
+.cards .card:nth-child(4n+2) { border-color: #ffeeb8; } .cards .card:nth-child(4n+2) .card-icon { background: #fff3cf; color: #d99a00; }
+.cards .card:nth-child(4n+3) { border-color: #dbf0bd; } .cards .card:nth-child(4n+3) .card-icon { background: #ebf7da; color: #5f9a10; }
+.cards .card:nth-child(4n+4) { border-color: #cfe6f6; } .cards .card:nth-child(4n+4) .card-icon { background: #e1f0fb; color: var(--accent-2); }
+.cd-item:nth-child(1) { background: var(--accent); } .cd-item:nth-child(2) { background: var(--yellow); }
+.cd-item:nth-child(3) { background: var(--green); } .cd-item:nth-child(4) { background: var(--accent-2); }
+.cd-item { border: none; transform: rotate(-2deg); } .cd-item:nth-child(even) { transform: rotate(2deg); }
+.cd-num, .cd-label { color: #fff; font-weight: 800; }
+.tl-photo img { border: 6px solid #fff; border-radius: 30px; }
+.tl-dot { background: var(--yellow); border-color: #fff; }
+.carousel-viewport { border: 6px solid #fff; }
+main > section.alt { background: var(--bg-alt) radial-gradient(#d5ebff 3px, transparent 3px) 0 0 / 34px 34px; }
+.intro { background: var(--intro-bg) url('../../img/deco-colinas.svg') no-repeat center bottom / 100% 140px; }
+.intro .intro-card { border: 4px solid #fff; }
+.intro-names { font-family: var(--font-display); font-weight: 800; color: var(--accent); }
+.seal { background: var(--yellow); color: var(--text); box-shadow: 0 6px 0 rgba(0,0,0,.12); font-family: var(--font-script); }
+.footer { background: var(--purple); }
+.footer-names { font-family: var(--font-display); font-weight: 800; }
+.hashtag { color: var(--yellow); }

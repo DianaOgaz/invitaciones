@@ -1,0 +1,75 @@
+/* =====================================================================
+   TEMA: ACUARELA PASTEL — manchas suaves pintadas a mano.
+   Ideal para: baby shower, bautizos, primeras comuniones, revelación de género.
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Mulish:wght@400;600&family=Dancing+Script:wght@500;700&display=swap');
+
+:root {
+  --bg: #fffdfb;
+  --bg-alt: #f6f8fc;
+  --surface: #ffffff;
+  --text: #4a4f63;
+  --muted: #858aa0;
+  --accent: #7d9ccb;
+  --accent-2: #e9a27f;
+  --on-accent: #ffffff;
+  --border: rgba(125, 156, 203, .2);
+  --font-display: 'Gilda Display', Georgia, serif;
+  --font-body: 'Mulish', system-ui, sans-serif;
+  --font-script: 'Dancing Script', cursive;
+  --radius: 28px;
+  --shadow: 0 16px 40px rgba(125, 156, 203, .14);
+  --hero-text: #4a4f63;
+  --orn-glyph: "❦";
+  --fx-colors: #a9c3e8, #f6c7b1, #c9e4d6, #e8cdee;
+  --intro-bg: #fffdfb;
+  --wash: radial-gradient(closest-side at 22% 30%, rgba(169, 195, 232, .55), transparent),
+          radial-gradient(closest-side at 78% 25%, rgba(246, 199, 177, .55), transparent),
+          radial-gradient(closest-side at 65% 78%, rgba(201, 228, 214, .6), transparent),
+          radial-gradient(closest-side at 25% 80%, rgba(232, 205, 238, .55), transparent);
+}
+
+/* Portada: manchas de acuarela que se mueven + foto con forma orgánica */
+.hero { background: var(--bg); }
+.hero::before { content: ""; position: absolute; inset: -10%; z-index: 0; background: var(--wash); filter: blur(30px) saturate(1.1); animation: lavado 18s ease-in-out infinite alternate; }
+@keyframes lavado { to { transform: rotate(8deg) scale(1.08); } }
+@keyframes blob { 0%, 100% { border-radius: 58% 42% 55% 45% / 48% 58% 42% 52%; } 50% { border-radius: 42% 58% 45% 55% / 58% 42% 58% 42%; } }
+.hero-inner { display: grid; grid-template-columns: minmax(220px, 380px) minmax(0, 520px); justify-content: center; align-items: center; gap: clamp(30px, 6vw, 80px); position: relative; z-index: 2; }
+.hero-photo { position: relative; inset: auto; aspect-ratio: 1; overflow: hidden; animation: blob 12s ease-in-out infinite; border: 10px solid rgba(255,255,255,.85); box-shadow: var(--shadow); }
+.hero-photo img { animation: none; height: 100%; }
+.hero-photo::after { display: none; }
+.eyebrow { color: var(--accent-2); font-weight: 600; }
+.hero-sub { font-family: var(--font-script); font-style: normal; font-size: 1.8rem; color: var(--accent); }
+.hero-names { font-family: var(--font-script); font-weight: 700; color: var(--accent); font-size: clamp(3.6rem, 10vw, 6.6rem); }
+.hero-names .amp { color: var(--accent-2); }
+.hero-deco { display: none; }
+.hd-side { border-color: var(--accent-2); }
+.btn-hero { background: var(--accent-2); border-color: var(--accent-2); }
+.scroll-hint { color: var(--accent); }
+@media (max-width: 820px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-photo { width: min(64vw, 270px); margin: 0 auto; }
+}
+
+.section-kicker { color: var(--accent-2); font-weight: 700; }
+.section-orn { color: var(--accent); font-size: 20px; }
+main > section { overflow: hidden; }
+main > section.alt { background: var(--bg); }
+main > section.alt::before { content: ""; position: absolute; inset: 0; background: var(--wash); opacity: .55; filter: blur(40px); }
+main > section > .container { position: relative; }
+.card, .cd-item, .padrino { border: none; }
+.card-icon { animation: blob 10s ease-in-out infinite; background: #eaf1fb; }
+.cards .card:nth-child(even) .card-icon { background: #fdeee6; color: var(--accent-2); }
+.tl-photo img { border-radius: 58% 42% 55% 45% / 48% 58% 42% 52%; border: 8px solid #fff; }
+.tl-dot { background: var(--accent-2); border-color: #fff; }
+.btn { letter-spacing: .12em; }
+
+.intro { background: var(--bg); }
+.intro::before { content: ""; position: absolute; inset: 0; background: var(--wash); filter: blur(30px); }
+.intro-card { position: relative; border: none; }
+.seal { background: radial-gradient(circle at 35% 30%, #c9daf2, var(--accent) 70%); box-shadow: 0 6px 16px rgba(0,0,0,.12); animation: blob 10s infinite; }
+
+.footer { background: #fff; color: var(--text); }
+.footer::before { content: ""; position: absolute; inset: 0; background: var(--wash); filter: blur(30px); }
+.footer-names { color: var(--accent); }
+.hashtag { color: var(--accent-2); }

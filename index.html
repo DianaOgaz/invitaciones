@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plantillas de invitaciones digitales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #f7f4ef; --ink: #1d1b18; --muted: #6b655d; --line: #e4ddd2; --card: #fff; --accent: #b0645a; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+    header { text-align: center; padding: clamp(56px, 9vw, 96px) 20px 40px; }
+    .kicker { font-size: .75rem; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+    h1 { font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 6vw, 3.8rem); line-height: 1.1; margin: .3em 0 .4em; }
+    header p { color: var(--muted); max-width: 620px; margin: 0 auto; }
+    .grid { width: min(1200px, 100% - 40px); margin: 0 auto 80px; display: grid; gap: 28px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+    .tpl { background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; transition: transform .3s, box-shadow .3s; }
+    .tpl:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,.08); }
+    .preview { position: relative; aspect-ratio: 9 / 13; overflow: hidden; background: #eee; }
+    .preview iframe { position: absolute; top: 0; left: 0; width: 400%; height: 400%; border: 0; transform: scale(.25); transform-origin: 0 0; pointer-events: none; }
+    .preview a { position: absolute; inset: 0; }
+    .info { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .info h2 { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 1.35rem; }
+    .info p { color: var(--muted); font-size: .92rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tags span { font-size: .72rem; padding: .25em .7em; border-radius: 99px; background: var(--bg); border: 1px solid var(--line); color: var(--muted); }
+    .actions { display: flex; gap: 10px; margin-top: auto; padding-top: 10px; }
+    .btn { flex: 1; text-align: center; text-decoration: none; padding: .7em 1em; border-radius: 10px; font-size: .85rem; font-weight: 600; background: var(--ink); color: #fff; }
+    .btn.alt { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+    .swatches { display: flex; gap: 5px; }
+    .swatches i { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(0,0,0,.08); }
+    .filtros { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 auto 36px; padding: 0 20px; }
+    .filtros button { font: inherit; font-size: .85rem; padding: .55em 1.1em; border-radius: 99px; border: 1px solid var(--line); background: var(--card); color: var(--muted); cursor: pointer; }
+    .filtros button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .tpl[hidden] { display: none; }
+    section.how { width: min(900px, 100% - 40px); margin: 0 auto 90px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: clamp(24px, 5vw, 44px); }
+    section.how h2 { font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 1.8rem; margin-bottom: 16px; }
+    section.how ol { padding-left: 1.2em; display: grid; gap: 10px; color: var(--muted); }
+    code { background: var(--bg); padding: .1em .4em; border-radius: 5px; font-size: .88em; color: var(--ink); }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="kicker">Invitaciones digitales</p>
+    <h1>Elige tu plantilla</h1>
+    <p>Bodas, XV años, cumpleaños, graduaciones y más. Cada plantilla incluye portada, cuenta regresiva, historia, mapa, itinerario, galería, mesa de regalos y confirmación de asistencia.</p>
+  </header>
+
+  <nav class="filtros" id="filtros" aria-label="Filtrar por tipo de evento"></nav>
+  <main class="grid" id="grid"></main>
+
+  <section class="how">
+    <h2>Cómo crear una invitación nueva</h2>
+    <ol>
+      <li>Copia un archivo de la carpeta <code>eventos/</code> (por ejemplo <code>boda-elegante.js</code>, que trae todas las opciones comentadas) y renómbralo, ej. <code>boda-ana-luis.js</code>.</li>
+      <li>Cambia nombres, fecha, lugares, textos y fotos. Elige el tema con <code>tema</code> (elegante, floral, boho, minimalista, mexicano, playa, invierno, xv, celestial, fiesta, gatsby, infantil, acuarela).</li>
+      <li>Ábrela en <code>invitacion.html?evento=boda-ana-luis</code>.</li>
+      <li>Para pases personalizados agrega <code>&amp;invitado=Familia%20López&amp;pases=4</code> al enlace.</li>
+      <li>Conecta Google Sheets para recibir las confirmaciones (ver <code>LEEME.md</code>).</li>
+    </ol>
+  </section>
+
+  <script>
+    const PLANTILLAS = [
+      { id: 'boda-elegante', nombre: 'Elegante', cat: 'boda', desc: 'Marfil, negro y dorado con marco fino y polvo dorado animado.', tags: ['Bodas', 'Aniversarios', 'Galas'], colores: ['#141311', '#b08d57', '#f3e2b8', '#faf7f2'] },
+      { id: 'boda-floral', nombre: 'Floral romántico', cat: 'boda', desc: 'Rosa palo y salvia, foto en arco, flores en las esquinas y pétalos cayendo.', tags: ['Bodas de jardín', 'Bautizos', 'Baby shower'], colores: ['#c48483', '#6f8a6a', '#f7ede8', '#fdf8f5'] },
+      { id: 'boda-boho', nombre: 'Boho / rústico', cat: 'boda', desc: 'Terracota y arena, pampas, foto en arco y tarjetas con forma de arco.', tags: ['Hacienda', 'Campo', 'Aire libre'], colores: ['#c0714f', '#5c4636', '#d8b48f', '#f7f0e6'] },
+      { id: 'boda-minimalista', nombre: 'Minimalista moderno', cat: 'boda', desc: 'Blanco y negro, tipografía enorme, foto en B/N y mucho espacio.', tags: ['Bodas civiles', 'Corporativo'], colores: ['#111111', '#6b6b6b', '#f4f4f2', '#ffffff'] },
+      { id: 'boda-mexicana', nombre: 'Mexicano / talavera', cat: 'boda', desc: 'Azul cobalto, papel picado ondeando, azulejos de talavera y confeti.', tags: ['Bodas', 'Fiestas mexicanas'], colores: ['#1f4e9c', '#e5337f', '#f6b81b', '#2a9d5c'] },
+      { id: 'boda-playa', nombre: 'Playa / tropical', cat: 'boda', desc: 'Turquesa y coral, olas animadas, hojas de palma y burbujas.', tags: ['Bodas en la playa', 'Verano'], colores: ['#14a3b4', '#ff8a65', '#0e5e6f', '#fdf9f1'] },
+      { id: 'boda-invierno', nombre: 'Invierno / navideño', cat: 'boda', desc: 'Verde bosque, vino y oro viejo, ramas de pino y nieve cayendo.', tags: ['Bodas de invierno', 'Posadas', 'Navidad'], colores: ['#1f4d3a', '#6b1f2a', '#b8954a', '#f6f5f0'] },
+      { id: 'xv-isabella', nombre: 'XV años · Princesa', cat: 'xv', desc: 'Lila, rosa y dorado con corona, retrato circular y destellos.', tags: ['XV años', 'Sweet 16', 'Primera comunión'], colores: ['#a46bc8', '#f4a6c6', '#c9a23c', '#fcf8ff'] },
+      { id: 'xv-celestial', nombre: 'Noche estrellada', cat: 'xv', desc: 'Azul profundo, luna con resplandor, órbita dorada y estrellas.', tags: ['XV años', 'Bodas de noche'], colores: ['#0b1030', '#26307a', '#e9c46a', '#c9d1ff'] },
+      { id: 'cumple-fiesta', nombre: 'Fiesta moderna', cat: 'cumple', desc: 'Colores vivos, tipografía bold, estilo sticker y confeti.', tags: ['Cumpleaños', 'Fiestas', 'Despedidas'], colores: ['#ff3d7f', '#ffc93c', '#00c2a8', '#3d1a78'] },
+      { id: 'gala-gatsby', nombre: 'Vintage Gatsby', cat: 'cumple', desc: 'Negro y oro art déco, patrón de abanicos y marcos escalonados.', tags: ['Galas', 'Cumpleaños adultos', 'Año nuevo'], colores: ['#0d0d0f', '#d4af37', '#ece0c4', '#7a1f2b'] },
+      { id: 'cumple-infantil', nombre: 'Infantil', cat: 'cumple', desc: 'Cielo con nubes, colinas, globos que suben y colores primarios.', tags: ['Cumpleaños de niños'], colores: ['#ff595e', '#ffca3a', '#8ac926', '#1982c4'] },
+      { id: 'baby-shower', nombre: 'Acuarela pastel', cat: 'bebe', desc: 'Manchas de acuarela en movimiento y foto con forma orgánica.', tags: ['Baby shower', 'Bautizos', 'Comuniones'], colores: ['#7d9ccb', '#e9a27f', '#c9e4d6', '#e8cdee'] },
+      { id: 'graduacion', nombre: 'Graduación', cat: 'otros', desc: 'El tema Elegante con colores personalizados: azul marino y oro.', tags: ['Graduaciones', 'Eventos corporativos'], colores: ['#0b1224', '#c9a23c', '#f3e2b8', '#f7f8fb'] },
+    ];
+    const CATS = { todas: 'Todas', boda: 'Bodas', xv: 'XV años', cumple: 'Cumpleaños y fiestas', bebe: 'Bebé', otros: 'Graduación' };
+    document.getElementById('filtros').innerHTML = Object.entries(CATS).map(([k, v], i) => `<button data-cat="${k}" class="${i ? '' : 'on'}">${v}</button>`).join('');
+    document.getElementById('filtros').addEventListener('click', (e) => {
+      const b = e.target.closest('button'); if (!b) return;
+      document.querySelectorAll('#filtros button').forEach((x) => x.classList.toggle('on', x === b));
+      document.querySelectorAll('.tpl').forEach((t) => (t.hidden = b.dataset.cat !== 'todas' && t.dataset.cat !== b.dataset.cat));
+    });
+    document.getElementById('grid').innerHTML = PLANTILLAS.map((p) => `
+      <article class="tpl" data-cat="${p.cat}">
+        <div class="preview">
+          <iframe src="invitacion.html?evento=${p.id}&preview" loading="lazy" title="Vista previa ${p.nombre}" tabindex="-1"></iframe>
+          <a href="invitacion.html?evento=${p.id}" aria-label="Abrir ${p.nombre}"></a>
+        </div>
+        <div class="info">
+          <div class="swatches">${p.colores.map((c) => `<i style="background:${c}"></i>`).join('')}</div>
+          <h2>${p.nombre}</h2>
+          <p>${p.desc}</p>
+          <div class="tags">${p.tags.map((t) => `<span>${t}</span>`).join('')}</div>
+          <div class="actions">
+            <a class="btn" href="invitacion.html?evento=${p.id}">Ver demo</a>
+            <a class="btn alt" href="invitacion.html?evento=${p.id}&invitado=Familia%20García&pases=3">Con pase</a>
+          </div>
+        </div>
+      </article>`).join('');
+  </script>
+</body>
+</html>

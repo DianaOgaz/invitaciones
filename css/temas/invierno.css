@@ -1,0 +1,66 @@
+/* =====================================================================
+   TEMA: INVIERNO / NAVIDEÑO — verde bosque, vino, oro viejo y nieve.
+   Ideal para: bodas de invierno, posadas, cenas de fin de año, Navidad.
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Prata&family=Karla:wght@400;500;700&family=Mrs+Saint+Delafield&display=swap');
+
+:root {
+  --bg: #f6f5f0;
+  --bg-alt: #ecefe8;
+  --surface: #ffffff;
+  --text: #22312a;
+  --muted: #66746c;
+  --accent: #1f4d3a;
+  --accent-2: #6b1f2a;
+  --gold: #b8954a;
+  --on-accent: #ffffff;
+  --border: rgba(31, 77, 58, .18);
+  --font-display: 'Prata', Georgia, serif;
+  --font-body: 'Karla', system-ui, sans-serif;
+  --font-script: 'Mrs Saint Delafield', cursive;
+  --radius: 10px;
+  --shadow: 0 16px 40px rgba(31, 77, 58, .12);
+  --hero-text: #fbf7ee;
+  --hero-overlay: linear-gradient(180deg, rgba(14, 40, 30, .45), rgba(14, 40, 30, .78));
+  --orn-glyph: "❄";
+  --fx-colors: #ffffff, #f1f5ff;
+  --intro-bg: #1f4d3a;
+}
+
+/* Portada: foto con velo verde bosque, ramas de pino y nieve */
+.hero { background: var(--accent); }
+.hero::before, .hero::after { content: ""; position: absolute; width: clamp(200px, 32vw, 400px); aspect-ratio: 1; z-index: 2; pointer-events: none;
+  background: url('../../img/deco-pino.svg') no-repeat center / contain; }
+.hero::before { top: -10px; left: -10px; }
+.hero::after { bottom: -10px; right: -10px; transform: scale(-1, -1); }
+.hero-content { padding: 40px clamp(20px, 5vw, 60px); }
+.eyebrow { color: #e7d3a4; }
+.hero-names { font-family: var(--font-script); font-size: clamp(4.2rem, 13vw, 8.6rem); color: #fbf7ee; line-height: 1; }
+.hero-names .amp { font-family: var(--font-display); font-size: .4em; color: #e7d3a4; }
+.hero-deco { display: block; margin: 12px auto 0; color: #e7d3a4; font-size: 20px; }
+.hero-deco::before { content: "❄"; }
+.hd-side { border-color: #e7d3a4; }
+.hd-day { color: #e7d3a4; }
+.btn-hero { background: var(--accent-2); border-color: var(--accent-2); }
+
+.section-kicker { color: var(--accent-2); font-size: clamp(2.2rem, 4.6vw, 3rem); }
+.section-orn { color: var(--gold); }
+.card { border-top: 4px solid var(--accent-2); }
+.card-icon { background: #e4ece7; }
+.cards .card:nth-child(even) .card-icon { background: #f3e3e5; color: var(--accent-2); }
+.cd-item { background: var(--accent); border: none; }
+.cd-num { color: #fbf7ee; }
+.cd-label { color: #cfe0d6; }
+.tl-photo img { border: 6px solid #fff; }
+.tl-dot { background: var(--accent-2); border-color: #fff; }
+.btn { border-radius: 4px; }
+main > section.alt { background: var(--bg-alt) url('../../img/deco-pino.svg') no-repeat right -50px top -50px / 200px; }
+.pase-card { border-color: var(--gold); }
+
+.intro { background: var(--intro-bg) url('../../img/deco-pino.svg') no-repeat left -30px top -30px / 260px; }
+.intro .intro-card { border-top: 6px solid var(--accent-2); }
+.seal { background: radial-gradient(circle at 35% 30%, #a73a48, var(--accent-2) 65%, #3f0f17); box-shadow: 0 6px 16px rgba(0,0,0,.25), inset 0 0 0 5px #51151f; }
+
+.footer { background: var(--accent); color: #fbf7ee; }
+.footer-names { font-family: var(--font-script); font-size: clamp(3.4rem, 10vw, 5.4rem); }
+.hashtag { color: #e7d3a4; }

@@ -1,0 +1,64 @@
+/* =====================================================================
+   TEMA: BOHO / RÚSTICO — terracota, arena, pampas y hojas secas.
+   Ideal para: bodas en hacienda, campo o playa; eventos al aire libre.
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500&family=Sacramento&display=swap');
+
+:root {
+  --bg: #f7f0e6;
+  --bg-alt: #efe3d3;
+  --surface: #fffaf3;
+  --text: #4b3a2e;
+  --muted: #8a7462;
+  --accent: #c0714f;
+  --accent-2: #5c4636;
+  --on-accent: #fffaf3;
+  --border: rgba(192, 113, 79, .25);
+  --font-display: 'Marcellus', Georgia, serif;
+  --font-body: 'Jost', system-ui, sans-serif;
+  --font-script: 'Sacramento', cursive;
+  --radius: 18px;
+  --shadow: 0 14px 34px rgba(92, 70, 54, .1);
+  --hero-text: #4b3a2e;
+  --orn-glyph: "❋";
+  --fx-colors: #d8b48f, #c0714f, #e6d5bc, #a8956f;
+  --intro-bg: #efe3d3;
+}
+
+/* Portada: arco terracota detrás de la foto + pampas */
+.hero { background: linear-gradient(180deg, #fbf5ec, var(--bg-alt)); }
+.hero::before, .hero::after {
+  content: ""; position: absolute; width: clamp(200px, 34vw, 420px); aspect-ratio: 1; z-index: 1; pointer-events: none;
+  background: url('../../img/deco-pampas.svg') no-repeat center / contain;
+}
+.hero::before { top: 0; left: 0; }
+.hero::after { bottom: 0; right: 0; transform: scale(-1, -1); }
+.hero-inner { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; padding-top: 96px; }
+.hero-photo { position: relative; inset: auto; width: clamp(210px, 28vw, 300px); animation: subir 1.2s both; overflow: visible; }
+.hero-photo::before { content: ""; position: absolute; inset: -22px -22px 22px 22px; border-radius: 999px 999px 0 0; background: #e2b49a; z-index: -1; }
+.hero-photo::after { content: ""; position: absolute; inset: 22px 22px -22px -22px; background: none; border: 1.5px solid var(--accent); border-radius: 999px 999px 0 0; }
+.hero-photo img { aspect-ratio: 3 / 4; height: auto; border-radius: 999px 999px 0 0; animation: none; }
+.eyebrow { margin-top: 48px; color: var(--accent); font-weight: 500; }
+.hero-names { color: var(--accent-2); font-size: clamp(3.6rem, 10vw, 7rem); margin: .05em 0 .1em; }
+.hero-names .amp { color: var(--accent); }
+.hero-deco { display: none; }
+.hd-side { border-color: var(--accent); }
+.scroll-hint { color: var(--accent); }
+
+/* Tarjetas con forma de arco */
+.section-title { letter-spacing: .04em; }
+.card, .padrino { border-radius: 160px 160px var(--radius) var(--radius); padding-top: 48px; }
+.card-icon { background: #f1dccd; }
+.cd-item { border-radius: 80px 80px 14px 14px; }
+.btn { border-radius: 6px; letter-spacing: .2em; font-weight: 500; }
+.tl-photo img { border-radius: 200px 200px 6px 6px; }
+.tl-dot { background: var(--accent); border-color: var(--bg); }
+.carousel-viewport { border-radius: 6px; }
+main > section.alt { background: var(--bg-alt) url('../../img/deco-pampas.svg') no-repeat left -40px top -40px / 200px; }
+.map-frame iframe { filter: sepia(.35) saturate(.85); }
+
+.intro { background: var(--intro-bg) url('../../img/deco-pampas.svg') no-repeat right -40px bottom -40px / 280px; }
+.intro .intro-card { border-radius: 200px 200px var(--radius) var(--radius); padding-top: 64px; }
+
+.footer { background: var(--accent-2); color: #f7f0e6; }
+.hashtag { color: #e2b49a; }

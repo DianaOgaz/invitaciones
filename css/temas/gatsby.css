@@ -1,0 +1,77 @@
+/* =====================================================================
+   TEMA: VINTAGE GATSBY / ART DÉCO — negro y oro, geometría años 20.
+   Ideal para: galas, cumpleaños de adultos, fiestas de fin de año, bodas de noche.
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Josefin+Sans:wght@300;400;600&family=Limelight&display=swap');
+
+:root {
+  --bg: #0d0d0f;
+  --bg-alt: #141417;
+  --surface: #17171b;
+  --text: #ece0c4;
+  --muted: #a99d84;
+  --accent: #d4af37;
+  --accent-2: #000000;
+  --on-accent: #0d0d0f;
+  --border: rgba(212, 175, 55, .35);
+  --font-display: 'Poiret One', Georgia, serif;
+  --font-body: 'Josefin Sans', system-ui, sans-serif;
+  --font-script: 'Limelight', Georgia, serif;
+  --radius: 0;
+  --btn-radius: 0;
+  --shadow: 0 0 0 1px rgba(212, 175, 55, .15);
+  --hero-text: #f3e2b8;
+  --hero-overlay: linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.85));
+  --orn-glyph: "◆";
+  --fx-colors: #d4af37, #f3e2b8, #a8841f;
+  --intro-bg: #0d0d0f;
+}
+body { font-size: 17px; }
+
+/* Portada: patrón de abanicos, marco escalonado */
+.hero { background: #000; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .12;
+  background: url('../../img/deco-artdeco.svg') repeat center / 70px; }
+.hero-content { padding: clamp(48px, 7vw, 80px) clamp(24px, 6vw, 80px); background: rgba(0, 0, 0, .45);
+  clip-path: polygon(24px 0, calc(100% - 24px) 0, 100% 24px, 100% calc(100% - 24px), calc(100% - 24px) 100%, 24px 100%, 0 calc(100% - 24px), 0 24px); }
+.hero-content::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: url('../../img/deco-esquina-deco.svg') no-repeat left top / 90px, url('../../img/deco-esquina-deco.svg') no-repeat right bottom / 90px; }
+.hero-content::after { content: ""; position: absolute; inset: 0; pointer-events: none; transform: scale(-1, 1);
+  background: url('../../img/deco-esquina-deco.svg') no-repeat left top / 90px, url('../../img/deco-esquina-deco.svg') no-repeat right bottom / 90px; }
+.eyebrow { font-family: var(--font-body); letter-spacing: .6em; color: var(--accent); }
+.hero-sub { font-family: var(--font-display); font-style: normal; letter-spacing: .2em; text-transform: uppercase; }
+.hero-names { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .12em; font-size: clamp(2.8rem, 9vw, 6.4rem);
+  background: linear-gradient(180deg, #fff3c4, #d4af37 55%, #a8841f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-names .amp { font-family: var(--font-script); }
+.hero-deco { display: block; width: 160px; height: 18px; margin: 18px auto 0;
+  background: linear-gradient(var(--accent), var(--accent)) center / 100% 1px no-repeat, linear-gradient(45deg, transparent 40%, var(--accent) 40% 60%, transparent 60%) center / 18px 18px no-repeat; }
+.hd-side { border-color: var(--accent); color: var(--accent); }
+.hd-day { font-family: var(--font-display); color: #f3e2b8; }
+.btn-hero { background: transparent; color: var(--accent); }
+@media (max-width: 600px) { .hero-content::before, .hero-content::after { background-size: 46px, 46px; } .hero-content { padding: 56px 22px; } }
+.btn-hero:hover { background: var(--accent); color: #000; }
+
+.section-kicker { font-family: var(--font-body); font-size: .8rem; letter-spacing: .5em; text-transform: uppercase; }
+.section-title { text-transform: uppercase; letter-spacing: .14em; color: #f3e2b8; font-size: clamp(1.8rem, 5vw, 3rem); }
+.section-orn { font-size: 10px; width: 220px; }
+main > section.alt { background: var(--bg-alt) url('../../img/deco-artdeco.svg') repeat center / 60px; background-blend-mode: soft-light; }
+main > section.alt::before { content: ""; position: absolute; inset: 0; background: rgba(20, 20, 23, .93); }
+main > section > .container { position: relative; }
+.card, .cd-item, .padrino, .pase-card { border: 1px solid var(--border);
+  clip-path: polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px); }
+.card-icon { background: none; border: 1px solid var(--accent); transform: rotate(45deg); border-radius: 0; width: 56px; height: 56px; }
+.card-icon .ico { transform: rotate(-45deg); }
+.btn { letter-spacing: .3em; }
+.tl-photo img { filter: grayscale(1) sepia(.35); }
+.tl-dot { border-radius: 0; transform: rotate(45deg); background: var(--accent); }
+.carousel-slide img, .map-frame iframe { filter: grayscale(1) sepia(.3); }
+.map-frame iframe { filter: invert(.9) grayscale(1) sepia(.3); }
+.choice input:checked + span { color: var(--accent); }
+.intro { background: var(--intro-bg) url('../../img/deco-artdeco.svg') repeat center / 70px; }
+.intro .intro-card { background: #0d0d0f; border: 1px solid var(--accent); }
+.seal { border-radius: 0; transform: rotate(45deg); width: 74px; height: 74px; }
+.seal span { transform: rotate(-45deg); font-family: var(--font-script); }
+.intro-names { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .1em; color: #f3e2b8; }
+.footer { border-top: 1px solid var(--border); }
+.footer-names { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; color: var(--accent); }
+.toast { background: var(--accent); color: #000; }

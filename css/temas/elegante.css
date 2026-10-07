@@ -1,0 +1,62 @@
+/* =====================================================================
+   TEMA: ELEGANTE — marfil, negro y dorado. Lujo minimalista.
+   Ideal para: bodas de noche, graduaciones, aniversarios, galas.
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600&family=Pinyon+Script&display=swap');
+
+:root {
+  --bg: #faf7f2;
+  --bg-alt: #f1ece3;
+  --surface: #fffdf9;
+  --text: #1d1b18;
+  --muted: #6e675d;
+  --accent: #b08d57;
+  --accent-2: #141311;
+  --on-accent: #ffffff;
+  --border: rgba(176, 141, 87, .28);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Montserrat', system-ui, sans-serif;
+  --font-script: 'Pinyon Script', cursive;
+  --radius: 2px;
+  --btn-radius: 0;
+  --shadow: 0 18px 50px rgba(20, 19, 17, .07);
+  --hero-text: #f6efe2;
+  --hero-overlay: linear-gradient(180deg, rgba(14,13,11,.45), rgba(14,13,11,.7));
+  --orn-glyph: "◆";
+  --fx-colors: #d8b77a, #f3e2b8, #b08d57;
+  --intro-bg: #141311;
+}
+body { font-size: 16px; }
+
+/* Marco dorado doble en la portada */
+.hero-content { padding: clamp(40px, 7vw, 72px) clamp(20px, 6vw, 72px); }
+.hero-content::before, .hero-content::after { content: ""; position: absolute; pointer-events: none; border: 1px solid rgba(216, 183, 122, .55); }
+.hero-content::before { inset: 0; }
+.hero-content::after { inset: 8px; border-color: rgba(216, 183, 122, .3); }
+.hero-names { font-size: clamp(3.6rem, 11vw, 7.8rem); color: #f3e2b8; }
+.hero-names .amp { font-family: var(--font-display); font-style: italic; font-size: .5em; color: var(--accent); }
+.hero-deco { display: block; width: 90px; height: 1px; margin: 18px auto 0; background: var(--accent); }
+.hd-side { border-color: rgba(216, 183, 122, .6); }
+.hd-day { color: #f3e2b8; }
+.btn-hero { background: transparent; border-color: #d8b77a; color: #f3e2b8; }
+.btn-hero:hover { background: #d8b77a; color: #141311; }
+
+.section-title { font-weight: 500; letter-spacing: .02em; }
+.section-orn { font-size: 9px; }
+.card { box-shadow: none; position: relative; }
+.card::after { content: ""; position: absolute; inset: 6px; border: 1px solid var(--border); pointer-events: none; }
+.card-icon { background: transparent; border: 1px solid var(--accent); }
+.cd-item { box-shadow: none; background: transparent; border-color: var(--accent); }
+.tl-photo img { filter: grayscale(.25) contrast(1.05); }
+.tl-photo { position: relative; }
+.tl-photo::after { content: ""; position: absolute; inset: 12px -12px -12px 12px; border: 1px solid var(--accent); z-index: -1; }
+.carousel-viewport { border-radius: 0; }
+.map-frame iframe { filter: grayscale(1) contrast(1.05) sepia(.15); }
+
+/* Intro estilo sobre negro */
+.intro-card { background: #1d1b18; border-color: rgba(216,183,122,.4); color: #f3e2b8; }
+.intro-names { color: #f3e2b8; }
+.intro-kicker, .intro-date, .intro-para { color: #bfb39c; }
+
+.footer { color: #f3e2b8; }
+.footer-names { color: #f3e2b8; }
